@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "FinanzaPro"
+version = "1.0.0"
+id = "artifacts/finanzapro"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23890
+
+[services.development]
+run = "pnpm --filter @workspace/finanzapro run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/finanzapro", "run", "build" ]
+publicDir = "artifacts/finanzapro/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23890"
+BASE_PATH = "/"
