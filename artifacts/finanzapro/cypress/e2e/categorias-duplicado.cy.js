@@ -23,6 +23,7 @@ describe('Gestión de Categorías - Nombre duplicado', () => {
     cy.get('input[placeholder="Ej. Viajes"]').type(nombreDuplicado)
     cy.contains('button', 'Guardar').click()
     cy.wait('@crearCategoria')
+    cy.get('h3').filter(':contains("ChecklistDuplicada01")').should('have.length', 2)
     cy.screenshot('05_duplicado_aceptado')
 
     // Se espera que FALLE: la app no valida nombres duplicados (defecto BUG-05-03)
