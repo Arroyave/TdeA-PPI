@@ -50,3 +50,6 @@ Thumbs.db
 
 # docs
 *.docx
+# Archivos locales que no se versionan
+.agents/
+Plantilla_PPI_v1.5_Anderson_Categorias.docx
